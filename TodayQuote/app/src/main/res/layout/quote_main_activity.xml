@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:abdroid = "http://schemas.android.com/apk/res/android"
+    abdroid:orientation="vertical"
+    abdroid:layout_width="match_parent"
+    abdroid:layout_height="match_parent">
+
+    <TextView
+        abdroid:text="대충 명언"
+        abdroid:id="@+id/quote_text"
+        abdroid:textSize="18sp"
+        abdroid:textAlignment="center"
+        abdroid:layout_width="match_parent"
+        abdroid:layout_height="wrap_content"/>
+    <TextView
+        abdroid:id="@+id/quote_from"
+        abdroid:text="chaeyoung"
+        abdroid:textSize="10dp"
+        abdroid:textAlignment="textEnd"
+        abdroid:layout_width="match_parent"
+        abdroid:layout_height="wrap_content"/>
+
+    <Button
+        abdroid:id="@+id/quote_edit_button"
+        abdroid:text="명언 편집"
+        abdroid:layout_width="match_parent"
+        abdroid:layout_height="wrap_content"/>
+
+    <Button
+        abdroid:id="@+id/quote_list"
+        abdroid:text="명언 보기"
+        abdroid:layout_width="match_parent"
+        abdroid:layout_height="wrap_content"/>
+
+</LinearLayout>

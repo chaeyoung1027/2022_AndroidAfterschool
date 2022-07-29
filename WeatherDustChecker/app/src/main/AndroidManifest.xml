@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.weatherdustchecker">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<!--    <uses-permission android:name="android.permission.CAMERA"/> : 카메라-->
+<!--    <uses-permission android:name="android.permission.VIBRATE"/> : 진동-->
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/><!--조잡한-GPS대신 네트워크로 500m내에 위치정보-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/><!--GPS : 1m이하, 실내에서 작동 x-->
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:requiredForAllUsers="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="WeatherDustChecker"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WeatherDustChecker">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
