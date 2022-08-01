@@ -1,12 +1,10 @@
 package com.example.githubusersearch
 
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
 import org.w3c.dom.Text
@@ -40,18 +38,24 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.search_btn).setOnClickListener {
             val id = userIdInput.text.toString()
-            val apiCallForData = apiService.getUser(id,"token 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")
+            val apiCallForData = apiService.getUser(id,"token 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")
             apiCallForData.enqueue(object : Callback<GitHubUser>{
                 override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
-                    val data = response.body()!!
-                    Log.d("mytag", data.toString())
-                    content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\nfollowers:${data.followers}\nfollowing:${data.following}"
-                    Glide.with(this@MainActivity).load(data.avatarUrl).into(image);
+                    val code : Int = response.code()
+                    Log.d("mytag", response.code().toString())
+                    if(code.toString().startsWith("4")) {
+                        Toast.makeText(this@MainActivity,
+                            "유저를 찾을 수 없습니다.",
+                            Toast.LENGTH_SHORT).show()
+                    }else{
+                        val data = response.body()!!
+                        Log.d("mytag", data.toString())
+                        content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\nfollowers:${data.followers}\nfollowing:${data.following}"
+                        Glide.with(this@MainActivity).load(data.avatarUrl).into(image);
+                    }
                 }
 
-                override fun onFailure(call: Call<GitHubUser>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
+                override fun onFailure(call: Call<GitHubUser>, t: Throwable) {}
 
             })
         }
