@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     val data = response.body()!!
                     Log.d("mytag", data.toString())
                     content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\nfollowers:${data.followers}\nfollowing:${data.following}"
-                    Glide.with(this@MainActivity).load(data.avatar_url).into(image);
+                    Glide.with(this@MainActivity).load(data.avatarUrl).into(image);
                 }
 
                 override fun onFailure(call: Call<GitHubUser>, t: Throwable) {
