@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
 import org.w3c.dom.Text
 import retrofit2.Call
@@ -21,15 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         val userIdInput = findViewById<EditText>(R.id.user_id_input)
         val content = findViewById<TextView>(R.id.content)
+        val image = findViewById<ImageView>(R.id.Profile_image)
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.github.com")
             .addConverterFactory(
                 GsonConverterFactory.create(
-                    GsonBuilder().registerTypeAdapter(
-                        GitHubUser::class.java,
-                        GitHubUserDeserializer()
-                    ).create()
+//                    GsonBuilder().registerTypeAdapter(
+//                        GitHubUser::class.java,
+//                        GitHubUserDeserializer()
+//                    ).create()
                 )
             ).build()
 
@@ -42,7 +45,8 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
                     val data = response.body()!!
                     Log.d("mytag", data.toString())
-                    content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\n"
+                    content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\nfollowers:${data.followers}\nfollowing:${data.following}"
+                    Glide.with(this@MainActivity).load(data.avatar_url).into(image);
                 }
 
                 override fun onFailure(call: Call<GitHubUser>, t: Throwable) {

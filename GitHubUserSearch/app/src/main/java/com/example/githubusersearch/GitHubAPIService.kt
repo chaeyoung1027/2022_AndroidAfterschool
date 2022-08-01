@@ -20,9 +20,13 @@ interface GitHubAPIService {
 data class GitHubUser(
     val id: Int,
     val login: String,
-    val name : String?
+    val name : String?,
+    val avatar_url: String,
+    val followers : Int,
+    val following : Int
 )
 
+/*
 class GitHubUserDeserializer : JsonDeserializer<GitHubUser> {
     override fun deserialize(
         json: JsonElement?,
@@ -37,4 +41,4 @@ class GitHubUserDeserializer : JsonDeserializer<GitHubUser> {
         return GitHubUser(id!!, login!!, name)
     }
 
-}
+}*/
