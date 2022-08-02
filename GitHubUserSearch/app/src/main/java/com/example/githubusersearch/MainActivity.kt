@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.search_btn).setOnClickListener {
             val id = userIdInput.text.toString()
-            val apiCallForData = apiService.getUser(id,"token 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")
+            val apiCallForData = apiService.getUser(id,"token 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")
             apiCallForData.enqueue(object : Callback<GitHubUser>{
                 override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
                     val code : Int = response.code()

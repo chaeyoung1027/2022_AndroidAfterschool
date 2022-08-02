@@ -28,7 +28,7 @@ class GithubUserRepositoryListActivity : AppCompatActivity() {
             .build()
         val apiService = retrofit.create(GitHubAPIService::class.java)
         val apiCallForData = apiService.getRepos(id,
-        "token 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")
+        "token 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")
 
         if(id.isBlank()){
             Toast.makeText(this@GithubUserRepositoryListActivity,
