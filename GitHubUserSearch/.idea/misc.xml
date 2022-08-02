@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/activity_git_hub_user_repository_list.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/activity_github_user_repositorylist.xml" value="0.21014492753623187" />
         <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/github_page.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/github_user_repositorylist_activity.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/Mirim/Desktop/asdf/GitHubUserSearch/app/src/main/res/layout/repo_item.xml" value="0.19635416666666666" />
       </map>
     </option>
   </component>

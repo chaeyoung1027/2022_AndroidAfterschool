@@ -16,6 +16,12 @@ interface GitHubAPIService {
         @Path("user") id: String,
         @Header("Authorization") pat : String
     ) : Call<GitHubUser>
+
+    @GET("/users/{userid}/repos")
+    fun getRepos(
+        @Path("userid") id: String,
+        @Header("Authorization") pat : String
+    ) : Call<List<GitHubRepo>>
 }
 
 data class GitHubUser(
@@ -26,6 +32,15 @@ data class GitHubUser(
     val avatarUrl: String,
     val followers : Int,
     val following : Int
+)
+
+data class GitHubRepo(
+    val name: String,
+    val html_url: String,
+    val description : String?,
+    val forks_count: Int,
+    val watchers_count : Int,
+    val stargazers_count : Int
 )
 
 /*
