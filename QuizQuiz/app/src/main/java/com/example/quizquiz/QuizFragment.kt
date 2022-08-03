@@ -21,8 +21,16 @@ class QuizFragment : Fragment(),
 
     //QuizSolveListener 구현하고, 맞췄으면 "정답!", 틀렸으면 "오답!" <=로그로 출력
     override fun onAnswerSelected(isCorrect: Boolean) {
-        if(isCorrect) Log.d("mytag", "정답!")
-        else Log.d("mytag", "오답!")
+        //isCorrect가 true면 correctCount 1씩 증가
+        if(isCorrect) correctCount+=1
+        //다음 퀴즈로 넘어가기 => currentQuizIdx 1씩 증가
+        currentQuizIdx+=1
+        //=>QuizSolveFragment를 다시 만들면서 replace(단, 여기로 전달할 퀴즈는 다음 퀴즈)
+        childFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container,
+                QuizSolveFragment.newInstance(quizList[currentQuizIdx]))
+            .commit()
     }
 
     override fun onQuizStart() {
