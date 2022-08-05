@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                             "유저를 찾을 수 없습니다.",
                             Toast.LENGTH_SHORT).show()
                     }else{
-                        findViewById<Button>(R.id.user_repo_search).visibility = View.VISIBLE
                         val data = response.body()!!
                         Log.d("mytag", data.toString())
                         content.text = "login: ${data.login}\nid:${data.id}\nname:${data.name}\nfollowers:${data.followers}\nfollowing:${data.following}"
